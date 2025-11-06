@@ -1,3 +1,32 @@
+# RTEMS Examples
+
+## STM32H753zi
+
+Using the `arm/nucleo-h743zi` BSP.
+
+### Configure
+
+First build the `arm/nucleo-h743zi` BSP from `rsb`.
+
+`./waf configure --rtems=$HOME/Projs/rtems/rtems/6 --rtems-bsp=arm/nucleo-h743zi`
+
+### Build
+
+`./waf`
+
+## Flash
+
+`STM32_Programmer_CLI -c 'port=swd reset=HWrst' --download build/arm-rtems6-nucleo-h743zi/led/delay/delay.elf --start`
+
+(The filename must end in `.elf` - default is `.exe` but can be changed in the app's `wscript` file.)
+
+After flashing the GUI STM32CubeProgrammer might not be able to find the device but it can still be flashed from command-line. If it is necessary to "bring it back" to the GUI version, do a `west flash` from the Manpack v2 project.
+
+_Original README follows_
+
+--------
+
+
 RTEMS Examples
 ==============
 
