@@ -38,7 +38,24 @@ Set environment variables if not done:
 
 Then follow steps from <https://docs.rtems.org/docs/6.1/user/start/bsp-build.html#manual-bsp-build>, but use `[arm/nucleo-h753zi]` as BSP name.
 
+`./waf install` copies files to `~/Projs/rtems/rtems/6/arm-rtems6/nucleo-h753zi/lib/`.
+
+## Next steps
+
+Follow pattern from `spec/build/bsps/arm/beagle/bspboneblack.yml` and the `obj.yml`, add source files for STM32 GPIO HAL to RTEMS GPIO HAL (`bsps/arm/beagle/gpio/bbb-gpio.c`).
+
+Links:
+
+* <https://asuolgsoc2014.wordpress.com/2015/07/14/rtems-gpio-api-status/>
+* <https://asuolgsoc2014.wordpress.com/2015/06/08/rtems-gpio-api/>
+
 -----
+
+## Flash
+
+`STM32_Programmer_CLI --connect 'port=swd reset=HWrst' --download build/arm-rtems6-nucleo-h753zi/led/delay/delay.elf --start`
+
+(See also notes from RTEMS Test App below.)
 
 _README from Hello project follows_
 
